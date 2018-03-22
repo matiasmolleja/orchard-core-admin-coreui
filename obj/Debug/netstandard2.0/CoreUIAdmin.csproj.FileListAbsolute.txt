@@ -1,8 +1,0 @@
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\bin\Debug\netstandard2.0\CoreUIAdmin.deps.json
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\bin\Debug\netstandard2.0\CoreUIAdmin.dll
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\bin\Debug\netstandard2.0\CoreUIAdmin.pdb
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\obj\Debug\netstandard2.0\CoreUIAdmin.csproj.CoreCompileInputs.cache
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\obj\Debug\netstandard2.0\CoreUIAdmin.AssemblyInfoInputs.cache
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\obj\Debug\netstandard2.0\CoreUIAdmin.AssemblyInfo.cs
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\obj\Debug\netstandard2.0\CoreUIAdmin.dll
-E:\Repositories\orchard-core-templates\OrchardCore.Themes\CoreUIAdmin\obj\Debug\netstandard2.0\CoreUIAdmin.pdb
