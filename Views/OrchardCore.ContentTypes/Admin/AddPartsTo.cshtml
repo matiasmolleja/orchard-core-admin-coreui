@@ -1,0 +1,52 @@
+@model AddPartsViewModel
+@{
+    int i = 0;
+}
+<zone name="PageTitle">
+    <h1 class="page-title">@T["Add Parts To \"{0}\"", Model.Type.DisplayName]</h1>
+</zone>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @Model.Type.DisplayName
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info" role="alert">
+                @T["Choose the Parts to add to this Content Type."]
+            </div>
+            <form asp-action="AddPartsTo">
+                @Html.ValidationSummary()
+                <fieldset class="form-group">
+                    <ul class="list-group">
+                        @foreach (var partSelection in Model.PartSelections)
+                        {
+                            <li class="list-group-item">
+                                <div class="checkbox">
+                                    <label asp-for="PartSelections[i].IsSelected">
+                                        <input asp-for="PartSelections[i].IsSelected" type="checkbox" />
+                                        @partSelection.PartDisplayName
+                                    </label>
+                                    <input asp-for="PartSelections[i].IsSelected" type="hidden" />
+                                    <input asp-for="PartSelections[i].PartName" type="hidden" />
+                                    <span class="hint">@T["— {0}", @partSelection.PartDescription]</span>
+                                </div>
+                            </li>
+
+                            i++;
+                        }
+                    </ul>
+                </fieldset>
+                <fieldset class="form-group">
+                    <button class="btn btn-primary" type="submit">@T["Save"]</button>
+                    <a asp-route-action="Edit" asp-route-id="@Model.Type.Name" class="btn btn-secondary">@T["Cancel"]</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

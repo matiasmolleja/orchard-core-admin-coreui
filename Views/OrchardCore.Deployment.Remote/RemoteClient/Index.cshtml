@@ -1,0 +1,49 @@
+@model RemoteClientIndexViewModel
+
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["Remote Clients"])</h1>
+</zone>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @T["Remote Clients"]
+        </div>
+        <div class="card-toolbar" style="border-bottom: 1px solid #c2cfd6;">
+            <nav style="padding:20px;">
+                <a asp-route-action="Create" class="btn btn-primary" role="button">@T["Add Remote Client"]</a>
+            </nav>
+        </div>
+        <div class="card-body">
+            <form asp-action="Index">
+                @* the form is necessary to generate and antiforgery token for the delete action *@
+                @if (Model.RemoteClientList.RemoteClients.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var entry in Model.RemoteClientList.RemoteClients)
+                {
+                    <li class="list-group-item">
+                        <div class="properties">
+                            <div class="related">
+                                <a asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-primary btn-sm">@T["Edit"]</a>
+                                <a asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-danger btn-sm" itemprop="RemoveUrl UnsafeUrl">@T["Delete"]</a>
+                            </div>
+                            <h5>@entry.ClientName</h5>
+                        </div>
+                    </li>
+            }
+                </ul>
+        }
+        else
+        {
+            <div class="alert alert-info" role="alert">
+                @T["<strong>Nothing here!</strong> There are no remote clients for the moment."]
+            </div>
+    }
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

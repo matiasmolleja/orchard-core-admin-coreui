@@ -1,0 +1,71 @@
+@model UsersIndexViewModel
+
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["Users"])</h1>
+</zone>
+
+
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @T["Users"]
+        </div>
+
+        <div class="card-toolbar" style="border-bottom: 1px solid #c2cfd6;">
+            <nav style="padding:20px;">
+                <a asp-route-action="Create" class="btn btn-primary" role="button">@T["Add User"]</a>
+                <form asp-action="Index" method="get" class="form-inline" style="float:right;">
+                    <input id="search-box" asp-for="Options.Search" class="form-control mr-sm-2" type="text" placeholder="@T["Search"]" autofocus="autofocus">
+                    <button type="submit" class="btn btn-secondary my-2 my-sm-0">@T["Search"]</button>
+                </form>
+
+                @*<li class="nav-item">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @T["Actions"]
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">@T["Approve"]</a>
+                                <a class="dropdown-item" href="#">@T["Disable"]</a>
+                                <a class="dropdown-item" href="#">@T["Send challenge E-mail"]</a>
+                                <a class="dropdown-item" href="#">@T["Delete"]</a>
+                            </div>
+                        </div>
+                    </li>*@
+                @*@Html.TextBoxFor(m => m.Options.Search, new { @class = "text" })
+                    <label for="filterResults">@T("Filter:")</label>
+                    <select id="filterResults" name="@Html.NameOf(m => m.Options.Filter)">
+                        @Html.SelectOption(Model.Options.Filter, UsersFilter.All, T("All Users").ToString())
+                        @Html.SelectOption(Model.Options.Filter, UsersFilter.Approved, T("Approved Users").ToString())
+                        @Html.SelectOption(Model.Options.Filter, UsersFilter.Pending, T("Pending Users").ToString())
+                        @Html.SelectOption(Model.Options.Filter, UsersFilter.EmailPending, T("Pending Emails").ToString())
+                    </select>
+                    <label for="sortResults">@T("Sort by:")</label>
+                    <select id="sortResults" name="@Html.NameOf(m => m.Options.Order)">
+                        @Html.SelectOption(Model.Options.Order, UsersOrder.Name, T("Name").ToString())
+                        @Html.SelectOption(Model.Options.Order, UsersOrder.Email, T("Email").ToString())
+                        @Html.SelectOption(Model.Options.Order, UsersOrder.CreatedUtc, T("Creation Time").ToString())
+                        @Html.SelectOption(Model.Options.Order, UsersOrder.LastLoginUtc, T("Last Login Time").ToString())
+                    </select>*@
+            </nav>
+        </div>
+
+
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                <ul class="list-group">
+                    @foreach (var entry in Model.Users)
+                    {
+                        <li class="list-group-item">
+                            @await DisplayAsync(entry.Shape)
+                        </li>
+                    }
+                </ul>
+            }
+
+            @await DisplayAsync(Model.Pager)
+        </div>
+    </div>
+</div>

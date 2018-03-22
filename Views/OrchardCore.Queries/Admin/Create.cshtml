@@ -1,0 +1,35 @@
+@model QueriesCreateViewModel
+
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["New {0} query", Model.SourceName])</h1>
+</zone>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @T["New {0} query", Model.SourceName]
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Create" asp-route-returnUrl="@Context.Request.Query["ReturnUrl"]" method="post" enctype="multipart/form-data">
+                @Html.ValidationSummary()
+                @if (Model.Editor.Content != null)
+                {
+                    @await DisplayAsync(Model.Editor.Content)
+                }
+
+                @if (Model.Editor.Content != null)
+                {
+                    <fieldset class="form-group">
+                        @await DisplayAsync(Model.Editor.Actions)
+                    </fieldset>
+                }
+
+                <input type="hidden" asp-for="SourceName" />
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

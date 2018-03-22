@@ -1,0 +1,19 @@
+@model dynamic
+
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["Edit User"])</h1>
+</zone>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @T["Edit User"]
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                @Html.ValidationSummary()
+                @await DisplayAsync(Model)
+            </form>
+        </div>
+    </div>
+</div>

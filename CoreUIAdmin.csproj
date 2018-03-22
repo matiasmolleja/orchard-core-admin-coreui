@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\OrchardCore.Themes\Admin\Index - Copy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.0.2" />
+    <PackageReference Include="OrchardCore.Settings" Version="1.0.0-beta2-*" />
+    <PackageReference Include="OrchardCore.Theme.Targets" Version="1.0.0-beta2-*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Styles\simple-line-icons\css\simple-line-icons.css" />
+    <None Include="wwwroot\Styles\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <None Include="wwwroot\Styles\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <None Include="wwwroot\Styles\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <None Include="wwwroot\Styles\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <None Include="wwwroot\Styles\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\NewFolder\" />
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
+</Project>

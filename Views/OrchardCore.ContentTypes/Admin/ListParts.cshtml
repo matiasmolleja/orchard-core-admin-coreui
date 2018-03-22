@@ -1,0 +1,74 @@
+@model ListContentPartsViewModel
+
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["Content Parts"])</h1>
+</zone>
+
+
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @T["Content Parts"]
+        </div>
+        <div class="card-toolbar" style="border-bottom: 1px solid #c2cfd6;">
+            <nav style="padding:20px;">
+                <a asp-route-action="CreatePart" id="btnCreate" class="btn btn-primary" role="button">@T["Create new part"]</a>
+                <form class="form-inline my-2 my-lg-0"  style="float:right;">
+                    <input id="search-box" class="form-control mr-sm-2" type="text" placeholder="@T["Filter"]" autofocus="autofocus">
+                </form>
+            </nav>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                @foreach (var type in Model.Parts)
+                {
+                    <li class="list-group-item" data-filter-value="@type.DisplayName" data-type-name="@type.Name">
+                        @Html.DisplayFor(m => type)
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<h1></h1>
+
+
+<script at="Foot" type="text/javascript">
+    //<![CDATA[
+    $(function () {
+        var searchBox = $('#search-box');
+
+        // On each keypress filter the list of parts
+        searchBox.keyup(function (e) {
+            var search = $(this).val().toLowerCase();
+            var elementsToFilter = $("[data-filter-value]");
+
+            // On ESC, clear the search box and display all parts
+            if (e.keyCode == 27 || search == '') {
+                searchBox.val('');
+                elementsToFilter.toggle(true);
+            } else {
+                elementsToFilter.each(function () {
+                    var text = $(this).data('filter-value').toLowerCase();
+                    var found = text.indexOf(search) > -1;
+                    $(this).toggle(found);
+                });
+            }
+
+            // On Enter, redirect to the edit page if the part exists or the create page with a suggestion
+            if (e.keyCode == 13) {
+                var visibleRows = $("[data-type-name]:visible");
+                if (visibleRows.length > 0) {
+                    var editLink = $(".related a:last", visibleRows[0]);
+                    location.href = editLink.attr("href");
+                } else {
+                    var primaryButton = $("#btnCreate");
+                    location.href = primaryButton.attr("href") + "?suggestion=" + search;
+                }
+                return;
+            }
+        });
+    });
+        //]]>
+</script>

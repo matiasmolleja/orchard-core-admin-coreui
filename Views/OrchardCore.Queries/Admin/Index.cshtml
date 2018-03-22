@@ -1,0 +1,89 @@
+@model QueriesIndexViewModel
+
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["Queries"])</h1>
+</zone>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @T["Queries"]
+        </div>
+        <div class="card-toolbar"  style="border-bottom: 1px solid #c2cfd6;">
+            <nav style="padding:20px;">
+                <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#infoModal">@T["Add Query"]</button>
+                <form asp-action="Index" method="get" class="form-inline my-2 my-lg-0" style="float:right;">
+                    <input id="search-box" asp-for="Options.Search" class="form-control mr-sm-2" type="text" placeholder="@T["Search"]" autofocus="autofocus">
+                    <button type="submit" class="btn btn-secondary">@T["Search"]</button>
+                </form>
+            </nav>
+        </div>
+        <div class="card-body">
+            
+            <form asp-action="Index">
+                @* the form is necessary to generate and antiforgery token for the delete action *@
+                @if (Model.Queries.Any())
+                {
+                    <ul class="list-group">
+                        @foreach (var entry in Model.Queries)
+                        {
+                            <li class="list-group-item">
+                                @await DisplayAsync(entry.Shape)
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="alert alert-info" role="alert">
+                        @T["<strong>Nothing here!</strong> There are no queries for the moment."]
+                    </div>
+                }
+            </form>
+
+            @await DisplayAsync(Model.Pager)
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@T["Available Query Types"]</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (!Model.QuerySourceNames.Any())
+                {
+                    <p>@T["You need to enable a feature which provides a query source."] <a asp-action="Features" asp-controller="Admin" asp-area="OrchardCore.Features">@T["Go to Features"]</a></p>
+                }
+                else
+                {
+                    <div class="card-columns">
+
+                        @foreach (var source in Model.QuerySourceNames)
+                        {
+                            OrchardCore.DisplayManagement.IShape shape = await New.Query_Link(Name: source);
+                            shape.Metadata.Alternates.Add("Query_Link__" + source);
+
+                            @await DisplayAsync(shape)
+                        }
+                    </div>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">@T["Cancel"]</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
