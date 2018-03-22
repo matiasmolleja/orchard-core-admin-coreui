@@ -152,7 +152,6 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
-.DS_Store?
 
 # =========================
 # Orchard specifics
@@ -185,7 +184,8 @@ nuget.exe
 !lib/*/*.*
 
 #exclude node modules
-node_modules/*
+node_modules/
 
 wwwroot
-!OrchardCore.Themes/**/wwwroot
+!src/OrchardCore.Modules/**/wwwroot
+!src/OrchardCore.Themes/**/wwwroot
