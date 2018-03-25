@@ -3,9 +3,7 @@
 ** Any changes made directly to this file will be overwritten next time its asset group is processed by Gulp.
 */
 
-.app-header.navbar .navbar-brand {
-  background-size: 140px auto; }
-
+/* CUSTOMIZATION OVERRIDES FOR COREUI NAVIGATION */
 a.nav-link.no-children {
   padding-left: 46px;
   color: #a0a0a0 !important; }
@@ -13,18 +11,20 @@ a.nav-link.no-children {
 a.nav-link.no-children:hover, a.nav-link.nav-dropdown-toggle:hover {
   color: #fff !important; }
 
+/* Sidebar navigation: padding for first level links */
 li.nav-dropdown > ul > li.nav-dropdown a {
   padding-left: 46px;
   color: #a0a0a0 !important; }
 
+/* Sidebar navigation: padding for second level links */
 li.nav-dropdown > ul > li.nav-dropdown > ul > li a {
   padding-left: 66px;
   color: #6a6a6a !important; }
 
-a:hover {
-  cursor: pointer; }
-
-/* logo with image only on header to enable a dynamic text */
+/* 
+    Logo with image only on header to enable a dynamic text.
+    In default coreui the png contains logo and text as an image.
+*/
 .app-header.navbar .navbar-brand {
   width: 155px;
   height: 55px;
@@ -47,30 +47,43 @@ a:hover {
   padding-top: 14px;
   color: #333; }
 
+/* Centering logo horizontally on header full width */
 @media (max-width: 991.98px) {
   .app-header.navbar .navbar-brand {
-    margin-left: -77.5px;
-    /* centering logo horizontally on header full width */ } }
+    margin-left: -77.5px; } }
 
-.page-title {
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.2;
+/* Hiding brand text when sidebar is collapsed. Only logo is shown */
+.sidebar-minimized .navbar-brand span {
+  display: none; }
+
+.input-validation-error {
+  border-color: #f86c6b; }
+
+span.field-validation-error {
+  font-size: 80%;
+  color: #f86c6b; }
+
+.validation-summary-errors {
   position: relative;
-  border-bottom: 1px solid #a4b7c1;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 10px 30px;
-  margin-bottom: 1.5rem;
-  background-color: #fff; }
+  padding: 0.75rem 1.25rem;
+  color: #856404;
+  background-color: #fff3cd;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ffc107;
+  margin: -20px -20px 20px -20px; }
+
+.validation-summary-errors ul {
+  list-style-type: disc;
+  margin: 8px 0px; }
+
+.validation-summary-errors ul li {
+  margin-bottom: 8px; }
 
 /* main alert for notifier */
 .main > .message {
   position: relative;
   padding: 0.75rem 1.25rem;
-  margin-top: -24px;
+  /*margin-top: -24px;*/
   margin-bottom: 24px;
   border: 1px solid transparent;
   border-bottom: 1px solid #a4b7c1; }
@@ -95,12 +108,9 @@ a:hover {
   background-color: #fee2e1;
   border-color: #fdd6d6; }
 
-.related {
-  float: right !important; }
-
-.hint {
-  font-size: small;
-  color: #678898; }
+/* When message is after page title this sticks to the page-title */
+.page-title + .message {
+  margin-top: -24px; }
 
 .card-img-top {
   height: 200px; }
@@ -120,6 +130,30 @@ a:hover {
   color: rgba(0, 0, 0, 0.5);
   border-color: #f0f3f5 !important; }
 
+/* just to prevent codemirror adding border radius to everything */
 div, img, span, .card {
-  /* just to prevent codemirror border radius */
   border-radius: 0px !important; }
+
+a:hover {
+  cursor: pointer; }
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  position: relative;
+  border-bottom: 1px solid #a4b7c1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 10px 30px;
+  margin-bottom: 1.5rem;
+  background-color: #fff; }
+
+.related {
+  float: right !important; }
+
+.hint {
+  font-size: small;
+  color: #678898; }

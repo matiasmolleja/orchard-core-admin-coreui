@@ -1,0 +1,22 @@
+.card-img-top {
+    height: 200px;
+}
+
+.card.theme-card {
+    min-height: 500px;
+}
+
+.current-theme {
+    border-top-width: 2px;
+    border-top-color: #4dbd74 !important;
+}
+
+.current-theme .card-footer {
+    color: #fff !important;
+    background-color: #4dbd74 !important;
+}
+
+.disabled-theme {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: #f0f3f5 !important;
+}

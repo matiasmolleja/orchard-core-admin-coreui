@@ -1,0 +1,60 @@
+/* CUSTOMIZATION OVERRIDES FOR COREUI NAVIGATION */
+a.nav-link.no-children {
+    padding-left: 46px;
+    color: #a0a0a0 !important;
+}
+
+a.nav-link.no-children:hover, a.nav-link.nav-dropdown-toggle:hover {
+    color: #fff !important;
+}
+
+/* Sidebar navigation: padding for first level links */
+li.nav-dropdown > ul > li.nav-dropdown a {
+    padding-left: 46px;
+    color: #a0a0a0 !important;
+}
+
+/* Sidebar navigation: padding for second level links */
+li.nav-dropdown > ul > li.nav-dropdown > ul > li a {
+    padding-left: 66px;
+    color: #6a6a6a !important;
+}
+
+/* 
+    Logo with image only on header to enable a dynamic text.
+    In default coreui the png contains logo and text as an image.
+*/
+.app-header.navbar .navbar-brand {
+    width: 155px;
+    height: 55px;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    background-color: #fff;
+    background-image: url(../img/logo-symbol.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 28px auto;
+    border-bottom: 1px solid #a4b7c1;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-left: 36px;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-top: 14px;
+    color: #333;
+}
+
+/* Centering logo horizontally on header full width */
+@media (max-width: 991.98px) {
+    .app-header.navbar .navbar-brand {
+        margin-left: -77.5px; 
+    }
+}
+
+/* Hiding brand text when sidebar is collapsed. Only logo is shown */
+.sidebar-minimized .navbar-brand span {
+    display: none;
+}

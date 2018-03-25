@@ -13,15 +13,20 @@
     ],
     "output": "wwwroot/Styles/CoreUIAdmin.css"
   },
-
   {
     "generateSourceMaps": false,
     "inputs": [
       "../../OrchardCore.Modules/OrchardCore.Resources/Assets/Bootstrap/Js/popper.js",
       "../../OrchardCore.Modules/OrchardCore.Resources/Assets/Bootstrap/Js/bootstrap.js",
-      "Assets/js/*.js",
-      "Assets/js/views/*.js"
+      "Assets/js/*.js"
     ],
     "output": "wwwroot/Scripts/CoreUIAdmin.js"
+  },
+  {
+    "generateSourceMaps": false,
+    "inputs": [
+      "Assets/js/userPreferencesLoader/userPreferencesLoader.js"
+    ],
+    "output": "wwwroot/Scripts/userPreferencesLoader.js"
   }
 ]
