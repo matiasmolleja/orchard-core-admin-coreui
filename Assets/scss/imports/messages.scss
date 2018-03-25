@@ -1,0 +1,40 @@
+/* main alert for notifier */
+.main > .message {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    /*margin-top: -24px;*/
+    margin-bottom: 24px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #a4b7c1;
+}
+
+.message-info {
+    color: #115770;
+    background-color: #d2eef7;
+    border-color: #c1e7f4;
+}
+
+
+.message-success {
+    color: #28623c;
+    background-color: #dbf2e3;    
+    border-color: #cdedd8;
+}
+
+
+.message-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.message-danger {
+    color: #813838;
+    background-color: #fee2e1;
+    border-color: #fdd6d6;
+}
+
+/* When message is after page title this sticks to the page-title */
+.page-title + .message {
+    margin-top: -24px;
+}

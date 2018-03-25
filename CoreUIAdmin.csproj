@@ -5,78 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\AJAX_Full_Project_GULP\**" />
-    <Compile Remove="wwwroot\AJAX_Starter_GULP\**" />
-    <Compile Remove="wwwroot\Angular2_CLI_Full_Project\**" />
-    <Compile Remove="wwwroot\Angular2_CLI_Starter\**" />
-    <Compile Remove="wwwroot\Angular4_CLI_Full_Project\**" />
-    <Compile Remove="wwwroot\Angular4_CLI_Starter\**" />
-    <Compile Remove="wwwroot\AngularJS_Full_Project_GULP\**" />
-    <Compile Remove="wwwroot\AngularJS_Starter_GULP\**" />
-    <Compile Remove="wwwroot\Aurelia_Full_Esnext_Webpack\**" />
-    <Compile Remove="wwwroot\React_Full_Project\**" />
-    <Compile Remove="wwwroot\React_Starter\**" />
-    <Compile Remove="wwwroot\Static_Full_Project_GULP\**" />
-    <Compile Remove="wwwroot\Static_Starter_GULP\**" />
-    <Compile Remove="wwwroot\Vue_Full_Project\**" />
-    <Compile Remove="wwwroot\Vue_Starter\**" />
-    <EmbeddedResource Remove="wwwroot\AJAX_Full_Project_GULP\**" />
-    <EmbeddedResource Remove="wwwroot\AJAX_Starter_GULP\**" />
-    <EmbeddedResource Remove="wwwroot\Angular2_CLI_Full_Project\**" />
-    <EmbeddedResource Remove="wwwroot\Angular2_CLI_Starter\**" />
-    <EmbeddedResource Remove="wwwroot\Angular4_CLI_Full_Project\**" />
-    <EmbeddedResource Remove="wwwroot\Angular4_CLI_Starter\**" />
-    <EmbeddedResource Remove="wwwroot\AngularJS_Full_Project_GULP\**" />
-    <EmbeddedResource Remove="wwwroot\AngularJS_Starter_GULP\**" />
-    <EmbeddedResource Remove="wwwroot\Aurelia_Full_Esnext_Webpack\**" />
-    <EmbeddedResource Remove="wwwroot\React_Full_Project\**" />
-    <EmbeddedResource Remove="wwwroot\React_Starter\**" />
-    <EmbeddedResource Remove="wwwroot\Static_Full_Project_GULP\**" />
-    <EmbeddedResource Remove="wwwroot\Static_Starter_GULP\**" />
-    <EmbeddedResource Remove="wwwroot\Vue_Full_Project\**" />
-    <EmbeddedResource Remove="wwwroot\Vue_Starter\**" />
-    <None Remove="wwwroot\AJAX_Full_Project_GULP\**" />
-    <None Remove="wwwroot\AJAX_Starter_GULP\**" />
-    <None Remove="wwwroot\Angular2_CLI_Full_Project\**" />
-    <None Remove="wwwroot\Angular2_CLI_Starter\**" />
-    <None Remove="wwwroot\Angular4_CLI_Full_Project\**" />
-    <None Remove="wwwroot\Angular4_CLI_Starter\**" />
-    <None Remove="wwwroot\AngularJS_Full_Project_GULP\**" />
-    <None Remove="wwwroot\AngularJS_Starter_GULP\**" />
-    <None Remove="wwwroot\Aurelia_Full_Esnext_Webpack\**" />
-    <None Remove="wwwroot\React_Full_Project\**" />
-    <None Remove="wwwroot\React_Starter\**" />
-    <None Remove="wwwroot\Static_Full_Project_GULP\**" />
-    <None Remove="wwwroot\Static_Starter_GULP\**" />
-    <None Remove="wwwroot\Vue_Full_Project\**" />
-    <None Remove="wwwroot\Vue_Starter\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="Views\OrchardCore.Themes\Admin\Index - Copy.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="wwwroot\.git" />
-    <None Remove="wwwroot\.gitattributes" />
-    <None Remove="wwwroot\.gitignore" />
-    <None Remove="wwwroot\LICENSE" />
-    <None Remove="wwwroot\package.json" />
-    <None Remove="wwwroot\README.md" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.0.2" />
     <PackageReference Include="OrchardCore.Settings" Version="1.0.0-beta2-*" />
     <PackageReference Include="OrchardCore.Theme.Targets" Version="1.0.0-beta2-*" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\NewFolder\" />
-    <Folder Include="Views\Shared\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

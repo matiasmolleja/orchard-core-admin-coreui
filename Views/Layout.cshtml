@@ -1,6 +1,6 @@
 @inject OrchardCore.Settings.ISiteService SiteService
 @{
-    var site = await SiteService.GetSiteSettingsAsync();
+    var site = await SiteService.GetSiteSettingsAsync();    
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -11,20 +11,25 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link type="image/x-icon" rel="shortcut icon" href="/CoreUIAdmin/favicon.ico" />
 
-    <resources type="Header" />
 
-    @* CSS *@
+    @*
+        CSS
+        Be careful: remember that order matters.
+        In particular media.css is adding a bigger default font-size if loaded after CoreUIAdmin.
+        media.css is loaded by <resources type="Header" />
+    *@
+    <style asp-name="font-awesome"></style>
+    <resources type="Header" />
     <link rel="stylesheet" href="/CoreUIAdmin/Styles/codemirror.css">
     <link rel="stylesheet" href="/CoreUIAdmin/Styles/coreUI.css">
     <link rel="stylesheet" href="/CoreUIAdmin/Styles/CoreUIAdmin.css">
-    <style asp-name="font-awesome"></style>
+
     <link href="/CoreUIAdmin/Styles/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-
-
+    
+    
     @* JS *@
+    <script type="text/javascript" src="/CoreUIAdmin/Scripts/userPreferencesLoader.js"></script>
     <script asp-name="admin" asp-src="/CoreUIAdmin/Scripts/CoreUIAdmin.js" depends-on="jQuery, jQuery-ui" at="Foot"></script>
-
-
 
     @await RenderSectionAsync("Header", required: false)
 </head>
@@ -65,7 +70,7 @@
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="@Url.Content("~/")">@site.SiteName</a>
+        <a class="navbar-brand" href="@Url.Content("~/")"><span>@site.SiteName</span></a>
         <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -100,6 +105,16 @@
             @await RenderBodyAsync()
         </main>
     </div>
+
+    <script type="text/javascript">
+                        //mini();
+                        //function mini() {
+                        //    console.log('min clla');
+                        //    var body = document.getElementsByTagName('body')[0];
+                        //    body.className += ' sidebar-minimized brand-minimized'; //className += " sidebar-minimized brand-minimized";
+                        //}
+                        //console.log(body);
+    </script>
 
     <footer class="app-footer">
         @await RenderSectionAsync("Footer", required: false)
