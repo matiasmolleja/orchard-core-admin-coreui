@@ -1,0 +1,3 @@
+[submodule "wwwroot"]
+	path = wwwroot
+	url = https://github.com/Skrypt/CoreUI-Free-Bootstrap-Admin-Template.git
