@@ -1,4 +1,4 @@
-@inject OrchardCore.Settings.ISiteService SiteService
+﻿@inject OrchardCore.Settings.ISiteService SiteService
 @{
     var site = await SiteService.GetSiteSettingsAsync();    
 }
@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="/CoreUIAdmin/Styles/CoreUIAdmin.css">
 
     <link href="/CoreUIAdmin/Styles/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    
-    
+
+
     @* JS *@
     <script type="text/javascript" src="/CoreUIAdmin/Scripts/userPreferencesLoader.js"></script>
     <script asp-name="admin" asp-src="/CoreUIAdmin/Scripts/CoreUIAdmin.js" depends-on="jQuery, jQuery-ui" at="Foot"></script>
@@ -61,8 +61,10 @@
 // Footer options
 1. '.footer-fixed'					- Fixed footer
 
+// Orchard specific
+1. '.action-buttons-fixed'      -action buttons and title are fixed to top
 -->
-<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden  footer-fixed">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden  footer-fixed ">
     <header class="app-header navbar">
 
         @* See an example of usage of this section in default admin: @await RenderSectionAsync("NavbarTop", required: false)*@
@@ -106,19 +108,9 @@
         </main>
     </div>
 
-    <script type="text/javascript">
-                        //mini();
-                        //function mini() {
-                        //    console.log('min clla');
-                        //    var body = document.getElementsByTagName('body')[0];
-                        //    body.className += ' sidebar-minimized brand-minimized'; //className += " sidebar-minimized brand-minimized";
-                        //}
-                        //console.log(body);
-    </script>
-
     <footer class="app-footer">
         @await RenderSectionAsync("Footer", required: false)
-        <span class="ml-auto">Powered by <a href="http://coreui.io">Orchard Core CMS</a></span>
+        <span class="ml-auto">Powered by <a href="https://github.com/OrchardCMS/OrchardCore">Orchard Core CMS</a></span>
     </footer>
 
     <div id="confirmRemoveMessage" data-value="@T["Are you sure you want to remove this element?"]"></div>
