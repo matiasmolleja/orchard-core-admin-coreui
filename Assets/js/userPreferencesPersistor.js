@@ -1,5 +1,5 @@
 // Each time the sidebar status is modified, that is persisted to localStorage.
-// The next load of the page, userPreferencesLoader.js will read that info to 
+// When the page is loaded again, userPreferencesLoader.js will read that info to 
 // restore the sidebar to the previous state.
 function persistCoreUIAdminPreferences() {
     setTimeout(function () {
