@@ -130,6 +130,30 @@ span.field-validation-error {
   color: rgba(0, 0, 0, 0.5);
   border-color: #f0f3f5 !important; }
 
+/* 
+    Classes to fix the action buttons to the top left of the screen.
+    They only apply when ".action-buttons-fixed" is applied to body
+*/
+body.action-buttons-fixed .main > h1.page-title:first-child + .container-fluid {
+  margin-top: 84px; }
+
+body.action-buttons-fixed .main > h1.page-title:first-child {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  z-index: 1000; }
+
+body.action-buttons-fixed .main .edit-item-secondary {
+  position: fixed;
+  top: 66px;
+  right: 30px;
+  justify-content: flex-end !important;
+  z-index: 1000; }
+
+/* When message is after page title this sticks to the page-title */
+body.action-buttons-fixed .page-title + .message {
+  margin-top: 59px; }
+
 /* just to prevent codemirror adding border radius to everything */
 div, img, span, .card {
   border-radius: 0px !important; }
