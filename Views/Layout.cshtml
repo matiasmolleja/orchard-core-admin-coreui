@@ -1,6 +1,9 @@
-﻿@inject OrchardCore.Settings.ISiteService SiteService
+﻿@using CoreUIAdmin.Models
+@using OrchardCore.Entities
+@inject OrchardCore.Settings.ISiteService SiteService
 @{
-    var site = await SiteService.GetSiteSettingsAsync();    
+    var site = await SiteService.GetSiteSettingsAsync();
+    var fixedActionButtonsClassName =  site.As<CoreUISettings>().FixedActionButtons ? "action-buttons-fixed" : string.Empty;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +67,7 @@
 // Orchard specific
 1. '.action-buttons-fixed'      -action buttons and title are fixed to top
 -->
-<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden  footer-fixed ">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden  footer-fixed @fixedActionButtonsClassName">
     <header class="app-header navbar">
 
         @* See an example of usage of this section in default admin: @await RenderSectionAsync("NavbarTop", required: false)*@

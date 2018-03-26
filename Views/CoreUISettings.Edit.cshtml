@@ -1,0 +1,7 @@
+﻿@model CoreUIAdmin.ViewModels.CoreUISettingsViewModel
+
+<fieldset class="form-group" asp-validation-class-for="FixedActionButtons">
+    <input asp-for="FixedActionButtons" type="checkbox" />
+    <label asp-for="FixedActionButtons">@T["Fix action buttons to the top of the screen"] 
+    <span asp-validation-for="FixedActionButtons"></span></label>
+</fieldset>

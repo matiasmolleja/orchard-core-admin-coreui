@@ -141,14 +141,14 @@ body.action-buttons-fixed .main > h1.page-title:first-child {
   position: fixed;
   background-color: #fff;
   width: 100%;
-  z-index: 1020; }
+  z-index: 1000; }
 
 body.action-buttons-fixed .main .edit-item-secondary {
   position: fixed;
   top: 66px;
   right: 30px;
   justify-content: flex-end !important;
-  z-index: 1020; }
+  z-index: 1000; }
 
 /* When message is after page title this sticks to the page-title */
 body.action-buttons-fixed .page-title + .message {
