@@ -13,27 +13,16 @@
             @T["Deployment Plan"]
         </div>
 
-        <div class="card-body">
-            <nav class="admin-toolbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalTargets">
-                                @T["Execute"]
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalSteps">
-                            @T["Add Step"]
-                        </button>
-                    </li>
-                </ul>
+        <div class="card-toolbar" style="border-bottom: 1px solid #c2cfd6;">
+            <nav style="padding:20px;">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSteps">@T["Add Step"]</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#modalTargets">@T["Execute"]</button>
             </nav>
+        </div>
 
+        <div class="card-body">
             <form asp-action="DeploymentPlan">
                 @if (Model.Items.Any())
                 {
