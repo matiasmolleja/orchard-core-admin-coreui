@@ -178,3 +178,6 @@ a:hover {
 .hint {
   font-size: small;
   color: #678898; }
+
+#modalSteps .card, #modalTargets .card {
+  min-height: 200px; }

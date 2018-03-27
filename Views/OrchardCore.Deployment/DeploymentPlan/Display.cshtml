@@ -63,13 +63,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="card-columns">
+                <div class="card-deck">
+
                     @foreach (var thumbnail in Model.Thumbnails)
                     {
-                        thumbnail.Value.DeploymentPlan = Model.DeploymentPlan;
-                        thumbnail.Value.Type = thumbnail.Key;
-                        @await DisplayAsync(thumbnail.Value)
+                        @:<div class="col-sm-6 col-md-4 mb-4">
+                            thumbnail.Value.DeploymentPlan = Model.DeploymentPlan;
+                            thumbnail.Value.Type = thumbnail.Key;
+                            @await DisplayAsync(thumbnail.Value)
+                        @:</div>
                     }
+
                 </div>
             </div>
             <div class="modal-footer">
@@ -89,12 +93,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="card-columns">
+                <div class="card-deck">
                     @foreach (var target in await DeploymentTargetManager.GetDeploymentTargetsAsync())
                     {
                         var routeWithId = new RouteValueDictionary(target.Route);
                         routeWithId["id"] = Model.DeploymentPlan.Id;
-
+                    <div class="col-sm-6 col-md-4 mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">@target.Name</h4>
@@ -104,6 +108,7 @@
                                 <a class="btn btn-primary btn-sm" href="@Url.RouteUrl(routeWithId)" itemprop="UnsafeUrl">@T["Select"]</a>
                             </div>
                         </div>
+                    </div>
                     }
                 </div>
             </div>
