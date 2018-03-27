@@ -5,7 +5,7 @@
 @import "src/OrchardCore.Themes/orchard-core-admin-coreui/Assets/scss/imports/action-buttons-fixed.scss";
 
 /* just to prevent codemirror adding border radius to everything */
-div, img, span, .card {
+div, img, span, li, .card {
     border-radius: 0px !important;
 }
 

@@ -152,7 +152,7 @@ body.action-buttons-fixed .page-title + .message {
   margin-top: 59px; }
 
 /* just to prevent codemirror adding border radius to everything */
-div, img, span, .card {
+div, img, span, li, .card {
   border-radius: 0px !important; }
 
 a:hover {
