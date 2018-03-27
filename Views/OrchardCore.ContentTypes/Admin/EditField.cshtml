@@ -3,29 +3,42 @@
 
 @model EditFieldViewModel
 
-<h1>@RenderTitleSegments(T["\"{0}\" settings for \"{1}\"", Model.DisplayName, Model.PartFieldDefinition.PartDefinition.DisplayName()])</h1>
+<zone name="PageTitle">
+    <h1 class="page-title">@RenderTitleSegments(T["\"{0}\" settings for \"{1}\"", Model.DisplayName, Model.PartFieldDefinition.PartDefinition.DisplayName()])</h1>
+</zone>
 
-<form asp-action="EditField">
-    @Html.ValidationSummary()
-    <fieldset class="form-group">
-        <div class="row col-md">
-            <label asp-for="DisplayName">@T["Display Name"]</label>
-            <input asp-for="DisplayName" autofocus class="form-control" />
-            <span class="hint">@T["Name of the field as it will be displayed in screens."]</span>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            @Model.PartFieldDefinition.PartDefinition.DisplayName()
         </div>
-    </fieldset>
+        <div class="card-body">
+            <form asp-action="EditField">
+                @Html.ValidationSummary()
+                <fieldset class="form-group">
+                    <div class="row col-md">
+                        <label asp-for="DisplayName">@T["Display Name"]</label>
+                        <input asp-for="DisplayName" autofocus class="form-control" />
+                        <span class="hint">@T["Name of the field as it will be displayed in screens."]</span>
+                    </div>
+                </fieldset>
 
-    <fieldset class="form-group">
-        <div class="row col-sm">
-            <label asp-for="Name">@T["Technical Name"]</label>
-            <input asp-for="Name" class="form-control" readonly />
-            <span class="hint">@T["Technical name of the field."]</span>
+                <fieldset class="form-group">
+                    <div class="row col-sm">
+                        <label asp-for="Name">@T["Technical Name"]</label>
+                        <input asp-for="Name" class="form-control" readonly />
+                        <span class="hint">@T["Technical name of the field."]</span>
+                    </div>
+                </fieldset>
+
+                @await DisplayAsync(Model.Editor)
+                <div class="edit-item-secondary">
+                    <fieldset class="form-group">
+                        <button class="btn btn-primary" type="submit" name="submit.Save" value="Save">@T["Save"]</button>
+                    </fieldset>
+                </div>
+            </form>
         </div>
-    </fieldset>
-
-    @await DisplayAsync(Model.Editor)
-
-    <fieldset class="form-group">
-        <button class="btn btn-primary" type="submit" name="submit.Save" value="Save">@T["Save"]</button>
-    </fieldset>
-</form>
+    </div>
+</div>
