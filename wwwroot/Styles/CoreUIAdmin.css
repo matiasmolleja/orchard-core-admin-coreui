@@ -98,7 +98,7 @@ span.field-validation-error {
   background-color: #dbf2e3;
   border-color: #cdedd8; }
 
-.message-warning {
+.message-warning, .message-error {
   color: #856404;
   background-color: #fff3cd;
   border-color: #ffeeba; }
