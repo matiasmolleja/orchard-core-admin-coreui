@@ -20,9 +20,11 @@
 
                 @if (Model.Editor.Content != null)
                 {
-                    <fieldset class="form-group">
-                        @await DisplayAsync(Model.Editor.Actions)
-                    </fieldset>
+                    <div class="edit-item-secondary">
+                        <fieldset class="form-group">
+                            @await DisplayAsync(Model.Editor.Actions)
+                        </fieldset>
+                    </div>
                 }
 
                 <input type="hidden" asp-for="Name" />

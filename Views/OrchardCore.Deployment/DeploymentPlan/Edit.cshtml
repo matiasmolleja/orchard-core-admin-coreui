@@ -1,7 +1,8 @@
 @model EditDeploymentPlanViewModel
 
 <zone name="PageTitle">
-    <h1 class="page-title">@RenderTitleSegments(T["Edit Deployment Plan"])</h1>
+    <h1 class="page-title">@RenderTitleSegments(T["Steps in Deployment Plan - {0}", Model.DeploymentPlan.Name])</h1>
+    
 </zone>
 
     <div class="container-fluid">
@@ -18,13 +19,14 @@
                         <span asp-validation-for="Name" class="text-danger">@T["The name is required."]</span>
                         <input asp-for="Name" class="form-control" autofocus />
                     </div>
-
-                    <fieldset>
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit">@T["Save"]</button>
-                            <a class="btn btn-secondary" asp-route-action="Index">@T["Cancel"]</a>
-                        </div>
-                    </fieldset>
+                    <div class="edit-item-secondary">
+                        <fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">@T["Save"]</button>
+                                <a class="btn btn-secondary" asp-route-action="Index">@T["Cancel"]</a>
+                            </div>
+                        </fieldset>
+                    </div>
                 </form>
 
             </div>

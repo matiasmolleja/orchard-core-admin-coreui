@@ -26,8 +26,11 @@
                     <label asp-for="Description">@T["Description"] <span asp-validation-for="Description"></span></label>
                     <textarea asp-for="Description" class="form-control" rows="3" type="text"></textarea>
                 </fieldset>
-
-                <input class="button" type="submit" value="@T["Save"]" />
+                <div class="edit-item-secondary">
+                    <fieldset class="form-group" asp-validation-class-for="Description">
+                        <input class="button btn btn-success" type="submit" value="@T["Save"]" />                        
+                    </fieldset>
+                </div>                
             </form>
         </div>
     </div>

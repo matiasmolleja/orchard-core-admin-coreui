@@ -61,9 +61,10 @@
                             <textarea asp-for="RawSql" rows="12" class="form-control"></textarea>
                             <span class="hint">@T["The query as it will be executed by the SQL database."]</span>
                         </div>
-
-                        <div class="form-group">
-                            <a href="@Url.Action("Create", "Admin", new { area = "OrchardCore.Queries", id = "Sql", query = Model.DecodedQuery })" class="btn btn-success">@T["Create"]</a>
+                        <div class="edit-item-secondary">
+                            <div class="form-group">
+                               <a href="@Url.Action("Create", "Admin", new { area = "OrchardCore.Queries", id = "Sql", query = Model.DecodedQuery })" class="btn btn-success">@T["Create"]</a>
+                            </div>
                         </div>
                     </div>
                 </div>

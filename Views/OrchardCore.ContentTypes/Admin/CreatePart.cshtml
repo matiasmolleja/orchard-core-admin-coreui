@@ -17,9 +17,12 @@
                     <input asp-for="Name" class="form-control" autofocus="autofocus" />
                     <span class="hint">@T["Use no spaces or special characters. For example, \"MyCustomPart\""]</span>
                 </fieldset>
-                <fieldset class="form-group">
-                    <button class="btn btn-primary" type="submit">@T["Create"]</button>
-                </fieldset>
+                <div class="edit-item-secondary">
+                    <fieldset class="form-group">
+                        <button class="btn btn-primary" type="submit">@T["Create"]</button>
+                    </fieldset>
+                </div>
+
             </form>
         </div>
     </div>
